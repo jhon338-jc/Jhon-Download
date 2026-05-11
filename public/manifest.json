@@ -1,0 +1,21 @@
+{
+  "name": "JHON DOWNLOAD V4",
+  "short_name": "JHON DL",
+  "description": "Sistem Unduh Media by JHON338",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#e0e0e0",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "https://cdn.odzre.my.id/rc4.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "https://cdn.odzre.my.id/rc4.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

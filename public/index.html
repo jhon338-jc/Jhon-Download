@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEDIA DOWNLOADER ULTRA</title>
+    <title>JHON DOWNLOAD</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#000000">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;800&family=Space+Grotesk:wght@300;700;900&display=swap" rel="stylesheet">
@@ -17,16 +19,15 @@
 
     <div class="marquee-top">
         <div class="marquee-content">
-            SYSTEM READY • V.3.0 ULTRA • NO WATERMARK • FAST SPEED • SECURE • SANN404 • SYSTEM READY • V.3.0 ULTRA • NO WATERMARK •
+            SISTEM SIAP • V.4.0 ULTRA • TANPA WATERMARK • SUPER CEPAT • AMAN • JHON338 • SISTEM SIAP • V.4.0 ULTRA •
         </div>
     </div>
 
     <nav class="navbar">
         <div class="brand-container">
-            <div class="brand-glitch" data-text="MD-ULTRA">MediaDownloader</div>
+            <div class="brand-glitch" data-text="JHON DOWNLOAD">JHON DOWNLOAD</div>
         </div>
-       
-        <a href="docs.html" class="nav-btn">BACA YA INI</a>
+        <a href="docs.html" class="nav-btn">BACA PANDUAN</a>
     </nav>
 
     <div class="container">
@@ -39,10 +40,10 @@
 
             <div class="card-header-visual">
                 <div class="profile-section">
-                    <img src="https://cdn.odzre.my.id/rc4.jpg" alt="User Profile" class="avatar-img" id="userAvatar">
+                    <img src="https://cdn.odzre.my.id/rc4.jpg" alt="Profil Pengguna" class="avatar-img" id="userAvatar">
                     <div class="profile-info">
                         <span class="user-role">ADMINISTRATOR</span>
-                        <span class="user-action">PASTE YOUR LINK BELOW</span>
+                        <span class="user-action">TEMPEL TAUTAN DI BAWAH</span>
                     </div>
                 </div>
                 <div class="decor-lines">///</div>
@@ -50,9 +51,24 @@
             
             <div class="card-body">
                 <div class="input-wrapper">
-                    <div class="input-label">TARGET URL:</div>
-                    <input type="text" id="urlInput" class="cyber-input" placeholder="https://tiktok.com/..." autocomplete="off">
-                    <div class="input-focus-border"></div>
+                    <div class="input-label">URL TARGET:</div>
+                    <div class="input-group">
+                        <input type="text" id="urlInput" class="cyber-input" placeholder="https://tiktok.com/..." autocomplete="off">
+                        
+                        <button class="action-icon-btn paste-btn" onclick="pasteLink()" title="Tempel">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                            </svg>
+                        </button>
+                        
+                        <button class="action-icon-btn clear-btn" onclick="clearLink()" title="Hapus">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="platform-tags">
@@ -60,7 +76,7 @@
                 </div>
                 
                 <button id="downloadBtn" onclick="fetchMedia()" class="cyber-button">
-                    <span class="btn-text">INITIATE DOWNLOAD</span>
+                    <span class="btn-text">MULAI UNDUH</span>
                     <span class="btn-glare"></span>
                 </button>
             </div>
@@ -68,20 +84,33 @@
 
         <div id="loading" class="cyber-card hidden" style="text-align: center; padding: 40px;">
             <div class="scanner"></div>
-            <p class="blink-text">PROCESSING DATA STREAM...</p>
+            <p class="blink-text" style="color: white;">MEMPROSES DATA STREAM...</p>
         </div>
 
         <div id="error-msg" class="cyber-card error-state hidden">
-            <div class="error-header">SYSTEM ERROR</div>
+            <div class="error-header">KESALAHAN SISTEM</div>
             <div class="error-body" id="error-text"></div>
         </div>
 
+        <button id="downloadAllBtn" onclick="downloadAll()" class="cyber-button hidden" style="background: var(--accent-tertiary); color: white; margin-bottom: 20px;">
+            UNDUH SEMUA MEDIA
+        </button>
+
         <div id="result" class="result-stack"></div>
+
+        <div class="cyber-card history-card" id="historySection">
+            <div class="card-header-visual" style="padding: 15px; background: var(--main-black); color: white; min-height: auto; border-bottom: 1px solid var(--main-white);">
+                <span style="font-weight: 900;">RIWAYAT UNDUHAN TERAKHIR</span>
+            </div>
+            <div class="card-body" id="historyList">
+                <p style="font-size: 0.8rem; font-family: monospace; color: var(--gray-light);">Belum ada riwayat.</p>
+            </div>
+        </div>
 
         <footer class="sann-footer">
             <div class="footer-line"></div>
-            <p>POWERED BY <span class="sann-highlight">SANN404 FORUM</span></p>
-            <p style="font-size: 0.7rem; opacity: 0.6;">ENGINEERED FOR PERFORMANCE</p>
+            <p>DIBERDAYAKAN OLEH <span class="sann-highlight">JHON338</span></p>
+            <p style="font-size: 0.7rem; opacity: 0.5; color: var(--gray-light);">SISTEM KHUSUS PERFORMA TINGGI</p>
         </footer>
 
     </div>
