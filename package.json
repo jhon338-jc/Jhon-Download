@@ -1,6 +1,7 @@
 {
-  "name": "aio-downloader",
-  "version": "1.0.0",
+  "name": "jhon-download",
+  "version": "4.0.0",
+  "description": "AIO Downloader by JHON338",
   "main": "api/index.js",
   "license": "MIT",
   "dependencies": {
